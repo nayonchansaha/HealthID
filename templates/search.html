@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-md-8">
+
+        <div class="card p-4 mb-4">
+            <h5 class="fw-bold mb-1">👨‍⚕️ Patient Search</h5>
+            <p class="text-muted mb-3">রোগীর HealthID দিন</p>
+            <form method="POST">
+                <div class="input-group">
+                    <input type="text" name="health_id" class="form-control"
+                    placeholder="যেমন: HID-2026-12345" required>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+            {% if error %}
+            <div class="alert alert-danger mt-3">{{ error }}</div>
+            {% endif %}
+        </div>
+
+        {% if user %}
+        <div class="card p-4 mb-4">
+            <h5 class="fw-bold mb-3">👤 রোগীর তথ্য</h5>
+            <div class="text-center mb-3">
+                <span class="health-id-badge fs-6">{{ user["health_id"] }}</span>
+            </div>
+            <table class="table table-borderless">
+                <tr><td><strong>নাম:</strong></td><td>{{ user["name"] }}</td></tr>
+                <tr><td><strong>বয়স:</strong></td><td>{{ user["age"] }}</td></tr>
+                <tr><td><strong>Blood Group:</strong></td><td>
+                    <span class="badge bg-danger fs-6">{{ user["blood_group"] }}</span>
+                </td></tr>
+                <tr><td><strong>Phone:</strong></td><td>{{ user["phone"] }}</td></tr>
+            </table>
+        </div>
+
+        <h5 class="fw-bold mb-3">📋 Medical Records</h5>
+        {% if records %}
+            {% for record in records %}
+            <div class="card p-3 mb-3">
+                <div class="d-flex justify-content-between">
+                    <h6 class="fw-bold">{{ record["title"] }}</h6>
+                    <small class="text-muted">{{ record["uploaded_at"] }}</small>
+                </div>
+                {% if record["description"] %}
+                <p class="text-muted mb-2">{{ record["description"] }}</p>
+                {% endif %}
+                {% if record["file_path"] %}
+                <a href="/static/uploads/{{ record['file_path'] }}" target="_blank"
+                class="btn btn-outline-primary btn-sm">📄 File দেখুন</a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="card p-4 text-center text-muted">
+                <p>কোনো record নেই।</p>
+            </div>
+        {% endif %}
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}

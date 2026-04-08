@@ -1,0 +1,89 @@
+/* General */
+body {
+    background-color: #f0f4f8;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #0077b6 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+/* HealthID Badge */
+.health-id-badge {
+    background-color: #0077b6;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #0077b6;
+    border-color: #0077b6;
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #005f8e;
+    border-color: #005f8e;
+}
+
+.btn-outline-primary {
+    color: #0077b6;
+    border-color: #0077b6;
+    border-radius: 8px;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0077b6;
+}
+
+/* Forms */
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 10px 14px;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #0077b6;
+    box-shadow: 0 0 0 0.2rem rgba(0,119,182,0.25);
+}
+
+/* Record Cards */
+.record-card {
+    border-left: 4px solid #0077b6;
+}
+
+/* Profile Table */
+.table td {
+    padding: 6px 8px;
+}
+
+/* Alert */
+.alert {
+    border-radius: 10px;
+}

@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+        <div class="card p-4">
+            <h3 class="text-center mb-4">🏥 HealthID Register</h3>
+
+            {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+            {% endif %}
+
+            <form method="POST">
+                <div class="mb-3">
+                    <label class="form-label">পূর্ণ নাম</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <input type="text" name="username" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Blood Group</label>
+                        <select name="blood_group" class="form-select">
+                            <option value="">Select</option>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                            <option>O+</option>
+                            <option>O-</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">বয়স</label>
+                        <input type="number" name="age" class="form-control">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="text" name="phone" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Register</button>
+            </form>
+
+            <p class="text-center mt-3">
+                Already account আছে? <a href="/login">Login করুন</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

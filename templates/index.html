@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <!-- Profile Card -->
+    <div class="col-md-4">
+        <div class="card p-4 mb-4">
+            <h5 class="fw-bold mb-3">👤 Profile</h5>
+            <div class="text-center mb-3">
+                <span class="health-id-badge fs-6">{{ user["health_id"] }}</span>
+            </div>
+            <table class="table table-borderless">
+                <tr><td><strong>নাম:</strong></td><td>{{ user["name"] }}</td></tr>
+                <tr><td><strong>বয়স:</strong></td><td>{{ user["age"] }}</td></tr>
+                <tr><td><strong>Blood Group:</strong></td><td>{{ user["blood_group"] }}</td></tr>
+                <tr><td><strong>Phone:</strong></td><td>{{ user["phone"] }}</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Records -->
+    <div class="col-md-8">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold">📋 Medical Records</h5>
+            <a href="/upload" class="btn btn-primary btn-sm">+ New Record</a>
+        </div>
+
+        {% if records %}
+            {% for record in records %}
+            <div class="card p-3 mb-3">
+                <div class="d-flex justify-content-between">
+                    <h6 class="fw-bold">{{ record["title"] }}</h6>
+                    <small class="text-muted">{{ record["uploaded_at"] }}</small>
+                </div>
+                {% if record["description"] %}
+                <p class="text-muted mb-2">{{ record["description"] }}</p>
+                {% endif %}
+                {% if record["file_path"] %}
+                    <a href="/static/uploads/{{ record['file_path'] }}" target="_blank" class="btn btn-outline-primary btn-sm me-2">
+                        📄 File দেখুন
+                    </a>
+                    <a href="/static/uploads/{{ record['file_path'] }}" download class="btn btn-outline-success btn-sm">
+                        ⬇️ Download
+                    </a>
+                </a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="card p-4 text-center text-muted">
+                <p>এখনো কোনো record নেই। Upload করুন!</p>
+                <a href="/upload" class="btn btn-primary">+ Upload করুন</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

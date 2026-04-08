@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthID</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        .role-card {
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 16px;
+        }
+        .role-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        .hero {
+            background: linear-gradient(135deg, #0077b6, #00b4d8);
+            color: white;
+            padding: 60px 0 40px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1 class="fw-bold">🏥 HealthID</h1>
+        <p class="fs-5">আপনার সকল মেডিকেল রেকর্ড এক জায়গায়</p>
+    </div>
+
+    <div class="container">
+        <h4 class="text-center mb-4 fw-bold">আপনি কে?</h4>
+        <div class="row justify-content-center gap-4">
+
+            <!-- Patient -->
+            <div class="col-md-4">
+                <a href="/login" class="text-decoration-none">
+                    <div class="card role-card p-4 text-center">
+                        <div style="font-size: 4rem;">🧑‍⚕️</div>
+                        <h4 class="fw-bold mt-3">আমি রোগী</h4>
+                        <p class="text-muted">Login করে আপনার medical records দেখুন ও manage করুন</p>
+                        <button class="btn btn-primary w-100 mt-2">Login / Register</button>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Doctor -->
+            <div class="col-md-4">
+                <a href="/search" class="text-decoration-none">
+                    <div class="card role-card p-4 text-center">
+                        <div style="font-size: 4rem;">👨‍⚕️</div>
+                        <h4 class="fw-bold mt-3">আমি ডাক্তার / হাসপাতাল</h4>
+                        <p class="text-muted">রোগীর HealthID দিয়ে তার medical records দেখুন</p>
+                        <button class="btn btn-outline-primary w-100 mt-2">Search Patient</button>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
